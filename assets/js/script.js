@@ -2,6 +2,7 @@ const slides = document.querySelectorAll(".slider .slide")
 const dots = document.querySelector(".slider .dots")
 const left = document.querySelector(".slider .left")
 const right = document.querySelector(".slider .right")
+let activeDote = 0
 console.log(left , right)
 
 for (let i = 0; i < slides.length-2; i++) {
@@ -21,6 +22,8 @@ const sliderMovment = (index) => {
     for (let i = 0; i < slides.length; i++) {
         slides[i].style.transform = `translateX(calc(-${index * 100}% - ${index * 4}vw))`
     }
+
+    activeDote = index
 }
 
 /* function sliderMovment(index) {
@@ -30,20 +33,25 @@ const sliderMovment = (index) => {
 } */
 
 left.addEventListener("click" , ()=>{
-    const activeDote = document.querySelector(".slider .active")
+/*     const activeDote = document.querySelector(".slider .active")
     const dotes = document.querySelectorAll(`.slider .dots .dote`)
     const doteId = activeDote.id
     const index = (activeDote.id[doteId.length-1] == dotes.length-1) ? 0 : parseInt(doteId[doteId.length-1]) + 1
+    const nextDoteId = "dote" + index */
+    const dotes = document.querySelectorAll(`.slider .dots .dote`)
+    const index = (activeDote == dotes.length-1) ?0 :   activeDote+ 1
     const nextDoteId = "dote" + index
     const nextDote = document.querySelector(`.slider #${nextDoteId}`)
     nextDote.click()
 })
 
 right.addEventListener("click" , ()=>{
-    const activeDote = document.querySelector(".slider .active")
+/*     const activeDote = document.querySelector(".slider .active")
     const dotes = document.querySelectorAll(`.slider .dots .dote`)
     const doteId = activeDote.id
-    const index = (activeDote.id[doteId.length-1] == "0") ? dotes.length-1 :  parseInt(doteId[doteId.length-1]) - 1
+    const index = (activeDote.id[doteId.length-1] == "0") ? dotes.length-1 :  parseInt(doteId[doteId.length-1]) - 1 */
+    const dotes = document.querySelectorAll(`.slider .dots .dote`)
+    const index = (activeDote == "0") ? dotes.length-1 :   activeDote- 1
     const nextDoteId = "dote" + index
     const nextDote = document.querySelector(`.slider #${nextDoteId}`)
     nextDote.click()
