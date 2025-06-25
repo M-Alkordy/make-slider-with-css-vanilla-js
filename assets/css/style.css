@@ -41,5 +41,27 @@
             border-radius: 50%;
             cursor: pointer;
         }
+
+        .dote.active {
+            background-color: orange;
+        }
+    }
+
+    .arrows {
+        width: calc(100% - 48px);
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        display: flex;
+        justify-content: space-between;
+
+        button {
+            width: 32px;
+            height: 32px;
+            border: 2px solid black;
+            background: none;
+            border-radius: 50%;
+            cursor: pointer;
+        }
     }
 }
